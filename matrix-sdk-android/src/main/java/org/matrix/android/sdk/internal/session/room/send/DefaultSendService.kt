@@ -267,9 +267,9 @@ internal class DefaultSendService @AssistedInject constructor(
                     keys.forEach { isRoomEncrypted ->
                         // Should never be empty
                         val localEchoes = get(isRoomEncrypted).orEmpty()
-                        val uploadWork = createUploadMediaWork(localEchoes, attachment, isRoomEncrypted, compressBeforeSending)
+                        val uploadWork = createUploadMediaWork(localEchoes, attachment, false, compressBeforeSending)
 
-                        val dispatcherWork = createMultipleEventDispatcherWork(isRoomEncrypted)
+                        val dispatcherWork = createMultipleEventDispatcherWork(false)
 
                         workManagerProvider.workManager
                                 .beginUniqueWork(buildWorkName(UPLOAD_WORK), ExistingWorkPolicy.APPEND_OR_REPLACE, uploadWork)
