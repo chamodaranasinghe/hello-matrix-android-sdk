@@ -155,6 +155,9 @@ internal class DefaultSession @Inject constructor(
 
     @MainThread
     override fun open() {
+        if(isOpen){
+            return
+        }
         assert(!isOpen)
         isOpen = true
         cryptoService.get().ensureDevice()
