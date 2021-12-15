@@ -90,6 +90,11 @@ interface Session :
     val isOpenable: Boolean
 
     /**
+     * Check session is open or not
+     */
+    val isSessionOpen: Boolean
+
+    /**
      * Useful shortcut to get access to the userId
      */
     val myUserId: String
